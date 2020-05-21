@@ -1,0 +1,24 @@
+- name: oVirt infra
+  hosts: ovirt-engines
+  remote_user: root
+  vars_files:
+    - secrets.yml
+  vars:
+    engine_fqdn: 10-37-140-237.rhev.lab.eng.brq.redhat.com
+    engine_user: admin@internal
+    compatibility_version: 4.4
+
+    data_center_name: dc1
+
+    clusters:
+     - name: cl1
+       cpu_type: 'Intel Westmere Family'
+       profile: production
+
+    hosts:
+     - name: vhost1
+       address: 10-37-140-69.rhev.lab.eng.brq.redhat.com
+       cluster: cl1
+       password: "{{ host_password }}"
+  roles:
+    - ovirt.infra

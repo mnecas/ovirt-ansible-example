@@ -1,0 +1,11 @@
+- name: Install RHV engine
+  hosts: ovirt-engines
+  remote_user: root
+  vars_files:
+    - secrets.yml
+  vars:
+    ovirt_engine_setup_product_type: 'RHV'
+    ovirt_engine_setup_version: "4.4"
+  roles:
+    - ovirt.engine-setup
+
