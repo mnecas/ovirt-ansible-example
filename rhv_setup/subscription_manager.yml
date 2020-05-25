@@ -1,6 +1,6 @@
 
 - name: Setup repositories using Subscription Manager for engine
-  hosts: ovirt-engines
+  hosts: ovirt_engines
   remote_user: root
   vars_files:
     - secrets.yml
@@ -15,7 +15,7 @@
     - role: ovirt.repositories
 
 - name: Setup repositories using Subscription Manager for hosts
-  hosts: ovirt-hosts
+  hosts: ovirt_hosts
   remote_user: root
   vars_files:
     - secrets.yml
